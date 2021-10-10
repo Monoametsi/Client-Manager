@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/png" href="{% static "Images/CM.ico" %}" >
+<!-- CSS CUSTOM -- Start -->
+<link rel="stylesheet" href="{% static "Header/CSS/header.css" %}">
+<link rel="stylesheet" href="{% static "Header/CSS/header-mobile.css" %}">
+<link rel="stylesheet" href="{% static "fontawesome-free-5.13.0-web/css/fontawesome.min.css" %}">
+<link rel="stylesheet" href="{% static "fontawesome-free-5.13.0-web/css/all.css" %}">
+<link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css"  %}">
+
+{% if request.path == '/' %}
+<link rel="stylesheet" href="{% static "CSS/index.css" %}">
+<link rel="stylesheet" href="{% static "CSS/index-mobile.css" %}">
+
+<title> Client-Manager </title>
+{% else %}
+<link rel="stylesheet" href="{% static "CSS/client-dashboard.css" %}">
+<link rel="stylesheet" href="{% static "CSS/client-dashboard-mobile.css" %}">
+<!-- CSS CUSTOM -- End -->
+<title> Client-Dashboard </title>
+{% endif %}
+</head>
+<body>
+	{% include 'navbar.html'%}
+	
+	{% block content %}
+	  replace me
+	{% endblock %}
+	
+	<!-- JS CUSTOM --Start -->
+	
+		<script src="{% static "Header/JS/header.js" %}"></script>
+	{% if request.path == '/' %}
+		<script src="{% static "/JS/index.js" %}"></script>
+	{% else %}
+		<script src="{% static "/JS/client-dashboard.js" %}"></script>
+	{% endif %}
+	<!-- JS CUSTOM -- End -->
+	
+</body>
+</html>

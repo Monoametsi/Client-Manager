@@ -1,0 +1,265 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+	<section id="dashboard-cont">
+		<div class="dashboard-cont">
+			<div class="dashboard">
+				<!-- 
+				<div class="search-info-cont">
+					<div class="search-engine-cont">
+						<input type="search" placeholder="Search clients by either name, surname or email" class="search-input" id="search-input">
+						
+						<button class="search-btn" id="search-btn">
+							<i class="fa fa-search search-icon"></i>
+						</button>
+					</div>
+				</div> 
+				-->
+
+				<div class="contacts-cont">
+					<div class="contacts-table-cont">
+						<div class="header-cont">
+							<div class="myMessage-header">
+								<h1>Clients</h1>
+								<span>{{ Total_Client_Amount }}</span>
+							</div>
+							
+							<div class="myMessage-header">
+								<h1>Click table rows to see files</h1>
+							</div>
+							
+							<button class="deleteAll-cont" id="deleteAll-cont">
+								<i class="fas fa-envelope"></i>
+								<h1>Send Request</h1>
+								<div class="content-title" id="content-title">Send Request to Selected</div>
+							</button>
+						</div>
+						
+						<table id="contacts-table">
+							<tr>
+								<th>
+									<input type="checkbox" class="checkbox" id="main-checkbox">
+								</th>
+								
+								<th>
+									<h5>File<br>Amount</h5>
+								</th>
+
+								<th>
+									<h5>Name</h5>
+								</th>
+								
+								<th>
+									<h5>Surname</h5>
+								</th>
+								
+								<th>
+									<h5>Phone Number</h5>
+								</th>
+								
+								<th>
+									<h5>Email</h5>
+								</th>
+								
+								<th>
+									<h5>ID</h5>
+								</th>
+								
+								<th>
+									<h5>&nbsp;</h5>
+								</th>
+							</tr>
+					<!-- class="new-notif-anime" -->
+					{% for client in clients %}
+					
+					<tr id="{{ client.ID }}">
+							<td>
+								<input type="checkbox" class="checkbox sub-checkBox">
+							</td>
+							
+							<td class="new-notif">
+							
+							{% for file in Files %}
+								{% if file.client_ID == client.ID|stringformat:"s" %}
+								{% if forloop.last %}
+									{{ forloop.counter }}
+								{% endif %}
+								{% else %}
+								{% if forloop.first %}
+									{{ forloop.counter0 }}
+								{% endif %}
+								{% endif %}
+							{% endfor %}
+								
+							</td>
+
+							<td class="text">
+								{{ client.first_name }}
+							</td>
+							
+							<td class="text">
+								{{ client.last_name }}
+							</td>
+							
+							<td class="text">
+								{{ client.cell_number }}
+								
+							</td>
+							
+							<td class="text">
+								{{ client.client_email }}
+							</td>
+							
+							<td class="text">
+								{{ client.client_ID  }}
+							</td>
+
+							<td>
+								<div class="content-title-cont">
+									<i class="fas fa-envelope tabindex="1"></i>
+									<div class="content-title">Send Request</div>
+								</div>
+							</td>
+						</tr>
+					
+				{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<div class="adv-search-form-modal" id="adv-search-form-modal">
+		
+		<div class="modal-closer-cont">
+			<i class="fa fa-times modal-closer" id="modal-closer"></i>
+		</div>
+		
+		<div class="adv-search-form-cont" id="adv-search-form-cont"> 
+			<div class="adv-search-form">
+				<div class="adv-search-title-cont">
+					<h1>Send your client or clients a request by filling the form below</h1>
+				</div>
+				
+				<form action="/" method="POST" id="req-form" class="adv-search-form-fields">{% csrf_token %}
+					
+					<div class="inputField-cont">
+						<textarea cols="10" rows="10" placeholder="Describe your request" id="request-message" class="inputField" name="request_message"></textarea>
+						<span class="err-msg">asas</span>
+					</div>
+					<input type="submit" value="Send Request" class="sub-btn" id="sub-btn">
+				</form>
+			</div>
+		</div>
+		
+		<!-- Success -->	
+				<div class="box-cont" id="box-cont">
+
+				  <div class="box">
+					
+					  <div class="title-close-cont">
+						  <h1 class="box-title">Success Message</h1>
+					  </div>
+						
+					  <div class="box-message-cont"> 
+
+						  <i class="fa fa-check"></i>
+						  <h1>Success!</h1>
+						  <p>Thanks for your interest!</p>
+						  <p>Your message has been submitted successfully</p>
+
+					  </div>
+
+				  </div>
+
+				</div>
+			<!-- Success -->
+
+
+			<!-- Failure -->	
+				<div class="box-cont" id="box-cont-failure">
+
+				  <div class="box">
+
+					  <div class="title-close-cont">
+						  <h1 class="box-title">Failure Message</h1>
+					  </div>
+
+					  <div class="box-message-cont"> 
+
+						  <i class="fa fa-times failure"></i>
+						  <h1 class="failure">Failure!</h1>
+						  <p>Oops something went wrong</p>
+						  <p>Your message failed to submit successfully, please check your connection and try again.</p>
+
+					  </div>
+
+				  </div>
+
+				</div>
+			<!-- Failure -->
+			
+
+			<!-- Loader -->
+
+				<div class="modal-preloader" id="modal-preloader"></div>
+
+			<!-- Loader -->
+	</div>
+	
+	<div class="MessageDetailsInfo-cont" id="post-info-cont">
+		{% for client in clients %}
+		<div class="post-info-cont">
+			
+			<div class="slide-closer" tabindex="1"> 
+				<i class="fa fa-times"></i> <span> Close</span>
+			</div>
+			
+			<div class="post-info">
+				<div class="buyersMessage-cont">
+					
+					<div class="buyersMessage-title">
+						<h4>Client Details</h4>
+					</div>
+					
+					<div class="info-message-cont">
+					  <div class="buyers-info">
+							<div> <i class="fa fa-user"></i> <span> {{ client.first_name }}</span> </div>
+							<div> <i class="fa fa-user"></i> <span> Surname - {{ client.last_name }} </span> </div>
+							<div> <i class="fas fa-id-card"></i> <span> {{ client.client_ID }} </span> </div>
+							<div> <i class="fa fa-phone"></i> <span>{{ client.cell_number }}</span> </div>
+							<div> <i class="fa fa-envelope"></i> <span> {{ client.client_email }}  </span> </div>
+					  </div>
+					</div>
+				
+				</div>
+				
+				<div class="post-card">
+					<div class="post-details">
+						
+						<div class="post-title-cont">
+							 <h4 class="post-title" id="{{ client.ID }}"> Files Submitted </h4>
+						</div>
+						
+						<div class="post-date-cont">
+							
+							{% for file in Files %}
+								{% if file.client_ID == client.ID|stringformat:"s" %}
+								<div class="post-date">
+									<span><a href="{{ file.requested_doc.url }}">{{ file.requested_doc }}</a></span>
+								</div>
+								{% endif %}
+							{% endfor %}
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	
+	</div>
+{% endblock %}

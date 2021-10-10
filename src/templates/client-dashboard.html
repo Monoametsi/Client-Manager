@@ -1,0 +1,121 @@
+{% extends 'base.html'%}
+
+{% block content %}
+	<section id="dashboard-cont">
+		<div class="dashboard-cont">
+			<div class="dashboard">
+
+				<div class="contacts-cont">
+					<div class="contacts-table-cont">
+						
+						<table id="contacts-table">
+							<tr>
+
+								<th>
+									<h5>Relationship Manager's Request</h5>
+								</th>
+							</tr>
+							
+							{% for req_msg in my_req_msgs %}
+								<tr class="{{ req_msg.client_ID }}">
+									
+									
+									<td class="text">
+										<div class="req-msg">{{ req_msg.request_msg }}</div>
+									</td>
+								</tr>
+							{% endfor %}
+				
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<div class="adv-search-form-modal" id="adv-search-form-modal">
+		<div class="modal-closer-cont">
+			<i class="fa fa-times modal-closer" id="modal-closer"></i>
+		</div>
+		
+		<div class="adv-search-form-cont" id="adv-search-form-cont"> 
+			<div class="adv-search-form">
+				<div class="adv-search-title-cont">
+					<h1>Relationship Manager's Request</h1>
+				</div>
+				
+				<form action="{{ request.path }}" enctype="multipart/form-data" method="POST" id="file-sub-form" class="adv-search-form-fields">{% csrf_token %}
+					<div class="buyers-message" id="buyers-message">
+						<p></p>
+					</div>
+					
+					<div class="adv-search-title-cont">
+						<h1 class="file-upl-msg">Upload requested files by clicking the button below</h1>
+					</div>
+					
+					<div class="inputField-cont">
+						<span>Only pdf files will be accepted**</span>
+					  <input type="hidden" name="client_ID" value="{{ ID }}" id="client-id">
+					  <input type="file" name="requested_doc" id="request_files" class="inputField" accept="application/pdf" multiple />
+					</div>
+					
+					<input type="submit" value="Send Response" class="sub-btn" id="sub-btn">
+				</form>
+			</div>
+		</div>
+		
+		<!-- Success -->	
+			<div class="box-cont" id="box-cont">
+
+			  <div class="box">
+				
+				  <div class="title-close-cont">
+					  <h1 class="box-title">Success Message</h1>
+				  </div>
+					
+				  <div class="box-message-cont"> 
+
+					  <i class="fa fa-check"></i>
+					  <h1>Success!</h1>
+					  <p>Thanks for your interest!</p>
+					  <p>Your message has been submitted successfully</p>
+
+				  </div>
+
+			  </div>
+
+			</div>
+		<!-- Success -->
+
+
+		<!-- Failure -->	
+			<div class="box-cont" id="box-cont-failure">
+
+			  <div class="box">
+
+				  <div class="title-close-cont">
+					  <h1 class="box-title">Failure Message</h1>
+				  </div>
+
+				  <div class="box-message-cont"> 
+
+					  <i class="fa fa-times failure"></i>
+					  <h1 class="failure">Failure!</h1>
+					  <p>Oops something went wrong</p>
+					  <p>Your message failed to submit successfully, please check your connection and try again.</p>
+
+				  </div>
+
+			  </div>
+
+			</div>
+		<!-- Failure -->
+
+		<!-- Loader -->
+
+			<div class="modal-preloader" id="modal-preloader"></div>
+
+		<!-- Loader -->
+	</div>
+	
+{% endblock %}

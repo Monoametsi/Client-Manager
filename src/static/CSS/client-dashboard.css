@@ -1,0 +1,380 @@
+#dashboard-cont{
+	margin-top: 12rem;
+}
+
+.dashboard-cont{
+	display: flex;
+	padding: 1rem 1.5rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.dashboard{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 1170px;
+}
+
+.inputField{
+	color: #000;
+	display: flex;
+	justify-content: center;
+	outline: none;
+	border: 1px solid transparent;
+	width: 350px;
+	max-width: 100%;
+	font-size: 1rem;
+	font-family: "Poppins",sans-serif;
+	padding: 8px;
+	border-radius: 20px;
+	background-color: #f2f2f2;
+	transition: 0.3s;
+}
+
+.inputField-cont{
+	/* background-color: red; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1.5rem;
+}
+
+.inputField-cont > span{
+	color: #000;
+	font-size: 13px;
+}
+
+.inputField-cont > .inputField{
+	border-radius: 5px;
+	border: 1px solid rgba(36,9,82,1);
+}
+
+.inputField::placeholder{
+	color: #636d74;
+}
+
+.inputField:focus{
+	background-color: transparent;
+	box-shadow: 0 0 5px rgba(36,9,82,1);
+}
+
+.err-msg{
+	order: 1; 
+	display: none;
+	color: red;
+	font-size: 1rem;
+	margin-left: 5px;
+}
+
+.adv-search-form-modal{
+	position: fixed;
+	animation-name: smooth-in;
+	animation-duration: 0.3s;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 50;
+	background-color: rgba(0,0,0,0.9);
+}
+
+.modal-closer-cont{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 1rem;
+	right: 2.4rem;
+}
+
+.modal-closer{
+	font-size: 3rem;
+	color: rgba(224, 25, 49, 1);
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.modal-closer:hover{
+	color: red;
+}
+
+/*Success box message*/
+.modal-preloader{
+	display: none;
+}
+
+.modal-preloader{
+	animation-name: preloader;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+	border: 10px solid #0acdff;
+	border-bottom: 10px solid orange;
+    border-radius: 100%;
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+@keyframes preloader{
+
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
+
+}
+
+.box-cont{
+	display: none;
+    justify-content: center;
+	width: 100%;
+}
+
+.slideUp{
+	animation-name: slideUp;
+	animation-duration: 0.3s;
+}
+
+.box{
+	display: flex;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    flex-direction: column;
+	background-color: #fff;
+	box-shadow: 0 0 20px rgba(0,0,0,1);
+    border-radius: 5px;
+	-webkit-animation-name: micro;
+	-webkit-animation-duration: 0.8s;
+	animation-name: micro;
+	animation-duration: 0.8s;
+}
+
+.box-title{
+	font-family: montserrat, sans-serif;
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+.title-close-cont{
+	display: flex;
+	align-self: center;
+	padding: 0 10px;
+}
+
+.box-closer{
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+}
+
+.box-closer:hover{
+	color: rgba(0, 0, 0, 1);
+}
+
+.box-message-cont{
+	margin-top: -1rem;
+	text-align: center;
+	align-self: center;
+} 
+
+.box-message-cont i{
+	color: #00FF00;
+	font-weight: bold;
+	font-size: 4rem;
+}
+
+.box-message-cont > i.fa-times{
+	color: red;
+}
+
+.box-message-cont > *:not(:last-child){
+	margin-bottom: 0;
+}
+
+.box-message-cont h1{
+	margin-top: 0;
+	font-size: 2.5rem;
+	color: #00FF00;
+	font-family: montserrat, sans-serif;
+}
+
+.box-message-cont h1.failure{
+	color: red;
+}
+
+.box-message-cont p:first-of-type{
+	font-size: 1.2rem;
+	margin-top: 12px;
+	color: rgba(0,0,0,0.9);
+}
+
+.box-message-cont p:last-child{
+	font-size: 0.9rem;
+	margin-bottom: 20px;
+}
+
+/*Success box message*/
+
+.adv-search-form-cont{
+	display: flex;
+	justify-content: center;
+	width: 600px;
+	max-width: 100%;
+	z-index: 10;
+}
+
+.adv-search-form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	width: 100%;
+	padding: 1rem;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.adv-search-form-fields{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+.adv-search-title-cont h1{
+	font-size: 1.2rem;
+	text-align: center;
+	color: #000;
+}
+
+.sub-btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	width: 100%;
+	font-size: 1.1rem;
+	font-weight: bold;
+	cursor: pointer;
+	color: #fff;
+	padding: 6px 10px;
+	font-family: "Poppins", sans-serif;
+	background-color: rgba(36,9,82,1);
+	transition: 0.3s;
+}
+
+.sub-btn:hover{
+	color: rgba(36,9,82,1);
+	border: 1px solid rgba(36,9,82,1);
+	box-shadow: 0 0 2px rgba(36,9,82,1);
+	background-color: transparent;
+}
+
+.contacts-cont{
+	display: flex;
+	margin-top: 5rem;
+	/* padding: 1rem 1.5rem; */
+	align-items: center;
+	justify-content: center;
+	/* background-color: red; */
+}
+
+.contacts-table-cont{
+	width: 100%;
+}
+
+table{
+	width: 100%;
+}
+
+table, tr, th{
+	border: 1px solid rgba(36,9,82,1);
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.req-msg {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+tr:last-child td{
+	border: 0 solid #fff;
+}
+
+th{
+	font-family: montserrat, sans-serif;
+	background-color: rgba(36,9,82,1);
+}
+
+td{
+	padding: 8px;
+	text-align: center;
+	transition: 0.3s;
+	color: #000;
+}
+
+.text{
+	line-height: 1.5rem;
+}
+
+tr td{
+	cursor: pointer;
+}
+
+tr:hover td{
+	color: #fff;
+	background-color: rgba(36,9,82,1);
+}
+
+.smooth-in{
+	animation-name: smooth-in;
+	animation-duration: 0.3s;
+}
+
+@keyframes smooth-in{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+.smooth-out{
+	animation-name: smooth-out;
+	animation-duration: 0.3s;
+}
+
+@keyframes smooth-out{
+	from{ opacity: 1; }
+	to{ opacity: 0; }
+}
+
+.buyers-message{
+	margin: 2rem 0;
+	border-radius: 6px;
+	padding:15px;
+	background-color: #eee;
+	color: #000;
+}
+
+.buyers-message p{
+	line-height: 1.6rem;
+	color: #000;
+	word-break: keep-all;
+}
+
+.file-upl-msg{
+	font-weight: 400;
+}

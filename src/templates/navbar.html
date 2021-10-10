@@ -1,0 +1,51 @@
+{% load static %}
+<nav>
+	
+	<div class="nav-cont" id="nav-cont">
+	
+		<div class="nav">
+		
+			<a href="/" class="logo-title-cont">
+			
+				<div class="logo-cont">
+					<img src="{% static "Images/CM.png" %}" class="logo">
+				</div>
+				
+				<div class="title-cont">
+					<h1>Client-Manager</h1>
+				</div>
+			
+			</a>
+			
+			<div class="get-started-cont">
+				
+				<div class="dashboard-dropdown-cont">
+					<div class="dashboard-dropdown-btn-cont" id="dashboard-dropdown-btn">
+						{% if request.path == '/' %}
+							<h4>My Clients</h4>
+						{% else %}
+							<h4>My Account</h4>
+						{% endif %}
+						
+					</div>
+					
+					<div class="dashboard-dropdown">
+						<ul class="dropdown-list">
+							<li>
+								<a href="#">Dashboard</a>
+							</li>
+							
+							<li>
+								<a href="#">Log out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		
+		</div>
+	
+	</div>
+
+</nav>
