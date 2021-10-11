@@ -26,21 +26,21 @@ The webapp was created with the help of Python, Django and Sqlite. </p>
 	<li><code>$ python manage.py createsuperuser</code></li><br>
 	<li>Follow instructions from createsuper command</li><br>
 	<li><code>$ python manage.py runserver</code></li><br>
-	<li>Navigate to http://127.0.0.1:8000/admin/</li>
-	<li>Log in with the information you gave to the createsuper instructions.</li>
-	<li>Navigate to http://127.0.0.1:8000/admin/client_manager/client/add/ to create a mock client</li>
-	<li>Navigate to http://127.0.0.1:8000/ to view client information.</li>
+	<li>Navigate to http://127.0.0.1:8000/admin/</li><br>
+	<li>Log in with the information you gave to the createsuper instructions.</li><br>
+	<li>Navigate to http://127.0.0.1:8000/admin/client_manager/client/add/ to create a mock client</li><br>
+	<li>Navigate to http://127.0.0.1:8000/ to view client information.</li><br>
 	<li>Click either the send request button or the envelope icon to activate 
-	a form that you can use to send a request to the client.</li>
+	a form that you can use to send a request to the client.</li><br>
 	<li>Navigate to http://127.0.0.1:8000/admin/client_manager/client/ and copy the uuid of the client,
-	which is the text written in between brackets next to the name Client object.</li>
+	which is the text written in between brackets next to the name Client object.</li><br>
 	<li>Paste the uuid next to the following url http://127.0.0.1:8000/client-dashboard/ and navigate to it.
-	your url will look something like this, http://127.0.0.1:8000/client-dashboard/72373c0e-a1be-480c-9533-4c3aea148fc2</li>
+	your url will look something like this, http://127.0.0.1:8000/client-dashboard/72373c0e-a1be-480c-9533-4c3aea148fc2</li><br>
 	<li>You will have accessed the client interface, click the table row to access a form the will allow you to send 
-	documents as a response to the relationship manager's request.</li>
+	documents as a response to the relationship manager's request.</li><br>
 	<li>After successfully submitting the document, navigate back to http://127.0.0.1:8000/ and click the table row of the client who sent the file. 
 	A side navigation will pop up which will include a link to the file sent by the client. 
-	Click the link to view the document sent by the client.</li>
+	Click the link to view the document sent by the client.</li><br>
 	<li>The apps mission is accomplished, you have used the app to its full extent and now understand what its all about.
 	Play around with it by creating more clients, sending more documents as a client and viewing them on the relation managers page as 
 	instructed in the instructions above.</li>
