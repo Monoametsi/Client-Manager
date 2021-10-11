@@ -26,6 +26,8 @@ The webapp was created with the help of Python, Django and Sqlite. </p>
 	<li><code>$ python manage.py createsuperuser</code></li><br>
 	<li>Follow instructions from createsuper command</li><br>
 	<li><code>$ python manage.py runserver</code></li><br>
+	<li>If the command does not run immediately, go to the manage.py file, write whatever text you want, comment that text 
+	out then save the file. The command should run after saving the file</li><br>
 	<li>Navigate to http://127.0.0.1:8000/admin/</li><br>
 	<li>Log in with the information you gave to the createsuper instructions.</li><br>
 	<li>Navigate to http://127.0.0.1:8000/admin/client_manager/client/add/ to create a mock client</li><br>
@@ -42,6 +44,6 @@ The webapp was created with the help of Python, Django and Sqlite. </p>
 	A side navigation will pop up which will include a link to the file sent by the client. 
 	Click the link to view the document sent by the client.</li><br>
 	<li>The apps mission is accomplished, you have used the app to its full extent and now understand what its all about.
-	Play around with it by creating more clients, sending more documents as a client and viewing them on the relation managers page as 
+	Play around with it by creating more clients, sending more documents as a client and viewing them on the relationship manager's page as 
 	instructed in the instructions above.</li>
 </ol>
